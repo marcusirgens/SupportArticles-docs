@@ -61,6 +61,9 @@ An AKS cluster requires an identity. This identity can be either a managed ident
 
 > Failed to pull image "\<acrname>.azurecr.io/\<repository\:tag>": [rpc error: code = Unknown desc = failed to pull and unpack image "\<acrname>.azurecr.io/\<repository\:tag>": failed to resolve reference "\<acrname>.azurecr.io/\<repository\:tag>": failed to authorize: failed to fetch oauth token: **unexpected status: 401 Unauthorized**
 
+> [!NOTE]
+> Nodes provisioned using [Node Autoprovisioning (preview)](/azure/aks/node-autoprovision) do not currently support pulling from private registries using managed identities due to [a known bug](https://github.com/Azure/karpenter-provider-azure/issues/4119).
+
 Several solutions can help you resolve this error, subject to the following constraints:
 
 - Solutions [2][cause1-solution2], [3][cause1-solution3], and [5][cause1-solution5] are applicable only to [AKS clusters that use a service principal](/azure/aks/kubernetes-service-principal).
